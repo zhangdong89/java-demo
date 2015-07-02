@@ -1,0 +1,14 @@
+---
+declared-services:
+  myElephant:
+    label: elephantsql
+    plan: turtle
+    
+applications:
+- name: myUploader
+  memory: 256M #The maximum memory to allocate to each application instance
+  instances: 1 #The number of instances of the application to start
+  path: ElephantSQL-Uploader.war
+  services:
+    - myElephant    #Identifier for ElephantSQL service, must be provisioned before push
+
